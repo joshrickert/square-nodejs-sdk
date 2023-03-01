@@ -161,7 +161,7 @@ export const catalogItemVariationSchema: Schema<CatalogItemVariation> = object({
   ],
   userData: ['user_data', optional(nullable(string()))],
   serviceDuration: ['service_duration', optional(nullable(bigint()))],
-  transitionTime: ['transitionTime', optional(nullable(bigint()))],
+  transitionTime: ['transition_time', optional(nullable(bigint()))],
   availableForBooking: ['available_for_booking', optional(nullable(boolean()))],
   itemOptionValues: [
     'item_option_values',
