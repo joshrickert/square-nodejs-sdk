@@ -90,6 +90,13 @@ export interface CatalogItemVariation {
   serviceDuration?: bigint | null;
   /**
    * If the `CatalogItem` that owns this item variation is of type
+   * `APPOINTMENTS_SERVICE`, then this is the extra transition time after the service in milliseconds. For
+   * example, a 30 minute transition time would have the value `1800000`, which is equal to
+   * 30 (minutes) * 60 (seconds per minute) * 1000 (milliseconds per second).
+   */
+  transitionTime?: bigint | null;
+  /**
+   * If the `CatalogItem` that owns this item variation is of type
    * `APPOINTMENTS_SERVICE`, a bool representing whether this service is available for booking.
    */
   availableForBooking?: boolean | null;
@@ -154,6 +161,7 @@ export const catalogItemVariationSchema: Schema<CatalogItemVariation> = object({
   ],
   userData: ['user_data', optional(nullable(string()))],
   serviceDuration: ['service_duration', optional(nullable(bigint()))],
+  transitionTime: ['transitionTime', optional(nullable(bigint()))],
   availableForBooking: ['available_for_booking', optional(nullable(boolean()))],
   itemOptionValues: [
     'item_option_values',
